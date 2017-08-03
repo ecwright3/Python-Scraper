@@ -1,0 +1,5 @@
+
+# Required Components
+
+* scrapy
+* 
