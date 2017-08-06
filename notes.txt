@@ -1,4 +1,6 @@
 
-For regal spider, need to add scraper of theather locations and their urls. 
-
+Scrape theather locations(done)
+Scrape theater urls (not started)
+Scrape showtimes one or day in the future
+     
 Need to build AMC spider using lessons learned from building Regal spiders. 
