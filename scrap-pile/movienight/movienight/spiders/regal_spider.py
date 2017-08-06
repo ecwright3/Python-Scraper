@@ -6,11 +6,12 @@ class RegalSpider (scrapy.Spider):
 
 
     start_urls = [
-        'https://www.regmovies.com/theaters/regal-westview-stadium-16-imax/8341',
+        #'https://www.regmovies.com/theaters/regal-westview-stadium-16-imax/8341',
+        'https://www.regmovies.com/theaters/regal-germantown-stadium-14/8459'
     ] 
 
     def parse(self, response):
-        for movie in response.css('ul.showtime-panel-list li'):
+        for movie in response.css('ul.showtime-panel-list > li'):
             
             data = movie.css('h3.title a::attr(data-csm)').extract_first()
             movieinfo = json.loads(data) 
