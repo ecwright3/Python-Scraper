@@ -1,0 +1,4 @@
+
+For regal spider, need to add scraper of theather locations and their urls. 
+
+Need to build AMC spider using lessons learned from building Regal spiders. 

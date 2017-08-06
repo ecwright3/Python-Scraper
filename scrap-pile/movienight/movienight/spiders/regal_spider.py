@@ -2,7 +2,7 @@ import scrapy
 import json 
 
 class RegalSpider (scrapy.Spider):
-    name = "regal"
+    name = "regal-movies"
 
 
     start_urls = [
