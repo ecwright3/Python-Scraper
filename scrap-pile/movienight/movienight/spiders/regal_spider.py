@@ -13,13 +13,14 @@ class RegalMovies (scrapy.Spider):
     def parse(self, response):
         for movie in response.css('ul.showtime-panel-list > li'):
             theater = response.css('div.page-header > div.info-cell')
+
+            data = movie.css('h3.title a::attr(data-csm)').extract_first()
+            movieinfo = json.loads(data)
+
             #remove the \n from showtimes list 
             for screen in movie.css('div.showtime-panel > div.format-section'): 
-
                 times = list(map(str.strip, screen.css('li.showtime-entry a::text').extract()))
-                
-                data = movie.css('h3.title a::attr(data-csm)').extract_first()
-                movieinfo = json.loads(data)
+
                 yield {
                     'title' : movieinfo['productionName'],
                     'productionid' : movieinfo['productionId'],
