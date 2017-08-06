@@ -31,7 +31,3 @@ class RegalMovies (scrapy.Spider):
                     'address' : theater.css('div.address > a::text').extract_first(),
                     'phone' : theater.css('div.phone::text').extract_first().strip(),
                 }
-
-
-
-##### Regal Theater Spider
