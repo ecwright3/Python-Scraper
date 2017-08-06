@@ -2,5 +2,12 @@
 Scrape theather locations(done)
 Scrape theater urls (not started)
 Scrape showtimes one or day in the future
+
+Get Movie information 
+ - Synopsis
+ - Main Case
+ - Directors
+ - Writers
+ - Release Date
      
 Need to build AMC spider using lessons learned from building Regal spiders. 
