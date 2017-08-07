@@ -27,11 +27,22 @@ class RegalMovies (scrapy.Spider):
     name = "regal-movies"
 
 
-    start_urls = [
+    #start_urls = [
         #'https://www.regmovies.com/theaters/regal-westview-stadium-16-imax/8341',
-        'https://www.regmovies.com/theaters/regal-germantown-stadium-14/8459',
-    ] 
-
+        #'https://www.regmovies.com/theaters/regal-germantown-stadium-14/8459',
+    #] 
+    
+    #Per https://doc.scrapy.org/en/latest/intro/tutorial.html
+    def start_requests(self):
+        urls = [
+            'https://www.regmovies.com/theaters/regal-westview-stadium-16-imax/8341',
+            'https://www.regmovies.com/theaters/regal-germantown-stadium-14/8459',
+            ]
+    
+        for url in urls:
+            yield scrapy.Request(url=url, callback=self.parse)
+        
+        
     def parse(self, response):
         
 
