@@ -13,4 +13,12 @@ Scrape movies and showtimes for all theaters (Not Started)
 Scrape showtimes one or several days into the future(Not Started)
 
 
-Need to build AMC spider using lessons learned from building Regal spiders. 
+Need to build AMC spider using less
+
+
+Theater List 
+
+https://www.regmovies.com/theater-list
+state = response.css('ul.grid > li  ul.list-unstyled')
+state.css('li >  a::attr(href)').extract()
+
