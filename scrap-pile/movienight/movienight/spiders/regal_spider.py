@@ -27,25 +27,20 @@ class RegalMovies (scrapy.Spider):
     name = "regal-movies"
 
 
-    #start_urls = [
-        #'https://www.regmovies.com/theaters/regal-westview-stadium-16-imax/8341',
-        #'https://www.regmovies.com/theaters/regal-germantown-stadium-14/8459',
-    #] 
-    
-    #Per https://doc.scrapy.org/en/latest/intro/tutorial.html
-    def start_requests(self):
-        urls = [
-            'https://www.regmovies.com/theaters/regal-westview-stadium-16-imax/8341',
-            'https://www.regmovies.com/theaters/regal-germantown-stadium-14/8459',
-            ]
-    
-        for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
-        
-        
-    def parse(self, response):
-        
+    start_urls = [
+        "https://www.regmovies.com/theater-list"
+    ] 
 
+    def parse(self, response):
+        theaters = response.css('ul.grid > li')
+        theater_link = theaters.css('li > ul.list-unstyled a::attr(href)').extract()
+
+        for link in theater_link:
+            url = "https://www.regmovies.com" + link
+            yield scrapy.Request(url=url, callback=self.parse_1, dont_filter=True)
+        
+    
+    def parse_1(self, response):
         for movie in response.css('ul.showtime-panel-list > li'):
             theater = response.css('div.page-header div.info-cell')
             data = movie.css('h3.title a::attr(data-csm)').extract_first()
@@ -73,7 +68,7 @@ class RegalMovies (scrapy.Spider):
                 movietitle = movie.css('h3.title a::attr(href)').extract_first()
                 mypath = "https://www.regmovies.com/" + movietitle
 
-                detailRequest = scrapy.Request(mypath, callback=self.parse_movieDetails)
+                detailRequest = scrapy.Request(mypath, callback=self.parse_movieDetails, dont_filter=True)
                 detailRequest.meta['movie_info'] = item
 
                 yield detailRequest
