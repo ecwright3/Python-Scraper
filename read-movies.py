@@ -1,5 +1,6 @@
 import json 
 import os
+import pprint
 
 with open('scrap-pile/movienight/movies.json') as data_file:
     data = json.load(data_file)
@@ -9,4 +10,10 @@ with open('scrap-pile/movienight/movies.json') as data_file:
 #create url string "/movie-name/productionid"   
 
  for movie in data:
-     movie['title'].replace("", "-")
+
+     mypath = (data[0]['title'].replace(" ", "-") + "/" + data[0]['productionid']).lower()  
+     mypath  = str("https://www.regmovies.com/movies/" + mypath)
+     
+     print(mypath)
+
+     
