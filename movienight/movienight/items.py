@@ -37,7 +37,10 @@ class MovienightTheaterItem(scrapy.Item):
     theaterState = scrapy.Field()
     theaterCity = scrapy.Field()
     theaterZip = scrapy.Field()
-    theaterCoordinates = scrapy.Field()
+    theaterGovCoordinates = scrapy.Field()
+    theaterSelfCoordinates = scrapy.Field()
     theaterPhone = scrapy.Field()
+    theaterCode = scrapy.Field()
+    theaterUrl = scrapy.Field()
     pass
     
