@@ -30,3 +30,14 @@ class MovienightItem(scrapy.Item):
     synopsis = scrapy.Field()
     cast = scrapy.Field()
     pass
+
+class MovienightTheaterItem(scrapy.Item):
+    theaterName = scrapy.Field()
+    theaterOneLineAddress = scrapy.Field()
+    theaterState = scrapy.Field()
+    theaterCity = scrapy.Field()
+    theaterZip = scrapy.Field()
+    theaterCoordinates = scrapy.Field()
+    theaterPhone = scrapy.Field()
+    pass
+    
