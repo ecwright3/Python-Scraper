@@ -2,25 +2,6 @@ import scrapy
 import json 
 from movienight.items import MovienightItem
 
-class movieDetailItem(scrapy.Item):
-    #Theater Details
-    title = scrapy.Field()
-    productionid = scrapy.Field()
-    rating = scrapy.Field()
-    duration = scrapy.Field()
-    screenformat = scrapy.Field()
-    showtimes = scrapy.Field()
-    theater = scrapy.Field()
-    address = scrapy.Field()
-    phone = scrapy.Field()
-    #Movie Details
-    director = scrapy.Field()
-    producer = scrapy.Field()
-    writer = scrapy.Field()
-    releasedate = scrapy.Field()
-    runtime = scrapy.Field()
-    synopsis = scrapy.Field()
-    cast = scrapy.Field()
     
 class RegalMovies (scrapy.Spider):
     name = "regal-movies"
